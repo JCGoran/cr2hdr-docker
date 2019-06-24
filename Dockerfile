@@ -15,7 +15,6 @@ WORKDIR /magic-lantern/
 RUN make
 WORKDIR /magic-lantern/modules/dual_iso/
 RUN make cr2hdr
-RUN mkdir /data
-WORKDIR /data
 RUN cp /magic-lantern/modules/dual_iso/cr2hdr /usr/bin/cr2hdr
 RUN rm -fr /magic-lantern
+WORKDIR /data
