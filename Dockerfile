@@ -1,4 +1,4 @@
-FROM debian:stable
+FROM debian:unstable
 
 RUN apt-get update && \
     apt-get install -y \
@@ -11,8 +11,6 @@ RUN apt-get update && \
     make && \
     pip3 install docutils
 RUN hg clone -r unified https://bitbucket.org/hudson/magic-lantern
-WORKDIR /magic-lantern/
-RUN make
 WORKDIR /magic-lantern/modules/dual_iso/
 RUN make cr2hdr
 RUN cp /magic-lantern/modules/dual_iso/cr2hdr /usr/bin/cr2hdr
